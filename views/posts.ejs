@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rest</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Form to posting data to mongoDB</h1>
+    <form class="container" method="post" action="/posts">
+        <div class="form-group">
+            <input class="form-control" name="title">
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" name="content"></textarea>
+        </div>
+        <button>Add content</button>
+    </form>
+    <h1>Table with Data</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Content</th>
+            <th scope="col">Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%postList.forEach(posts => {%>
+            <tr>
+                <th scope="row"><%=posts._id%></th>
+                <td><%=posts.title%></td>
+                <td><%=posts.content%></td>
+                <td>@<%=posts.date%></td>
+            </tr>
+        <%})%>
+
+    </table>
+</body>
+</html>
